@@ -9,6 +9,7 @@ class BookBase(BaseModel):
 
 class Book(BookBase):
     id: str
+    user_id: str
         
 class BookCreatePayload(BookBase):
     pass
@@ -17,14 +18,18 @@ class BookCreate(BookBase):
     user_id: str
 
 class BookUpdate(BookBase):
+    title: Optional[str] = None
+    author: Optional[str]= None
     description: Optional[str] = None
 
 # User
 class UserBase(BaseModel):
     id: str
     username: str
+    
 
 class UserCreate(UserBase):
+    username: str
     full_name: str
     password: str
 
